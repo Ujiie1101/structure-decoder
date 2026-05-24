@@ -182,8 +182,8 @@ claude
 | engines 層 | ✅ `book-decompose` / `atom-decompose` / `diagnose`（3エンジン、3入力チャネル全稼働） |
 | examples 層 | ✅ 変身（カフカ）/ 坊っちゃん（漱石）/ 斜陽（太宰） 合計22章（reading-note + published） |
 | docs/methodology | ✅ [docs/methodology.md](docs/methodology.md) |
-| 図解 / デモ | ⏳ Mermaid 図 + asciinema cast 予定 |
-| CONTRIBUTING / Issue templates | ⏳ 予定 |
+| 図解 | ✅ Mermaid 図（[本 README 中身セクション](#中身)） / asciinema cast ⏳ 予定 |
+| CONTRIBUTING | ✅ [CONTRIBUTING.md](CONTRIBUTING.md) / Issue templates ⏳ 予定 |
 | Web UI | ⏳ 将来 |
 
 移植元: 非公開の個人作業vault（数百冊の読書と数百日の daily-writing から構築）
