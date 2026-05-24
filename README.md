@@ -121,21 +121,22 @@ claude
 /book-decompose --published <章>           # note 公開用 ※注釈形式
 ```
 
-> **Note**: Claude Code（Anthropic公式CLI）が必要です。`brew install claude` または公式インストール手順を参照してください。$100 以上のプラン推奨。
+> **Note**: Claude Code（Anthropic公式CLI）が必要です。インストールは `npm install -g @anthropic-ai/claude-code` または公式手順（[docs.anthropic.com/claude/docs/claude-code](https://docs.anthropic.com/claude/docs/claude-code)）を参照してください。Anthropic API キーまたは Claude Pro/Max 等の対応プランが必要です。
 
 ---
 
 ## ステータス
 
-**WIP — v0.2（dictionary + book-decompose engine + 1サンプルセット 公開）**
+**WIP — v0.4（dictionary + 3 engines + 3 サンプルセット + methodology 公開）**
 
 | フェーズ | 進捗 |
 |---|---|
-| dictionary 層公開 | ✅ atoms 79 / patterns 232 / mechanisms 34 / meta 3 |
-| examples 層公開 | ✅ 変身（カフカ）全3章（reading-note + published） |
-| engines 層公開 | ✅ `book-decompose` / `atom-decompose` / `diagnose`（3エンジン、3入力チャネル全稼働） |
-| examples 層 | ✅ 変身（カフカ）/ 坊っちゃん（漱石）/ 斜陽（太宰）合計22章 |
+| dictionary 層 | ✅ atoms 79 / patterns 232 / mechanisms 34 / meta 3 |
+| engines 層 | ✅ `book-decompose` / `atom-decompose` / `diagnose`（3エンジン、3入力チャネル全稼働） |
+| examples 層 | ✅ 変身（カフカ）/ 坊っちゃん（漱石）/ 斜陽（太宰） 合計22章（reading-note + published） |
 | docs/methodology | ✅ [docs/methodology.md](docs/methodology.md) |
+| 図解 / デモ | ⏳ Mermaid 図 + asciinema cast 予定 |
+| CONTRIBUTING / Issue templates | ⏳ 予定 |
 | Web UI | ⏳ 将来 |
 
 移植元: 非公開の個人作業vault（数百冊の読書と数百日の daily-writing から構築）
