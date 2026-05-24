@@ -133,12 +133,14 @@ claude
 |---|---|
 | dictionary 層公開 | ✅ atoms 79 / patterns 232 / mechanisms 34 / meta 3 |
 | examples 層公開 | ✅ 変身（カフカ）全3章（reading-note + published） |
-| engines 層公開 | ✅ `book-decompose`（4層分解 + 6 modes、約1300行の skill） |
-|  | ⏳ `atom-decompose` / `diagnose` / `predict` 等 移植予定 |
-| docs/methodology | ⏳ 執筆中 |
+| engines 層公開 | ✅ `book-decompose` / `atom-decompose` / `diagnose`（3エンジン、3入力チャネル全稼働） |
+| examples 層 | ✅ 変身（カフカ）/ 坊っちゃん（漱石）/ 斜陽（太宰）合計22章 |
+| docs/methodology | ✅ [docs/methodology.md](docs/methodology.md) |
 | Web UI | ⏳ 将来 |
 
 移植元: 非公開の個人作業vault（数百冊の読書と数百日の daily-writing から構築）
+
+詳しい方法論は [`docs/methodology.md`](docs/methodology.md) を参照。4層分解の原理、辞書の三層構造、エンジンの動作、新規 atom/pattern の追加方法まで。
 
 ---
 
