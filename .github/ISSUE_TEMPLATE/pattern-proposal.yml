@@ -1,0 +1,112 @@
+name: "🧩 Pattern 提案"
+description: "新しい pattern（構造パターン）を提案する"
+title: "[pattern] <pattern-id>: <一行で構造の名前>"
+labels: ["pattern", "proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        新しい **pattern**（atom の組み合わせで生まれる再現可能な複合構造）を提案するテンプレートです。
+
+        **先に確認**：
+        - [methodology.md §6](../blob/main/docs/methodology.md#6-拡張方法) — pattern 追加の条件
+        - [CONTRIBUTING.md §3-2](../blob/main/CONTRIBUTING.md#3-2-新しい-pattern-を追加する)
+        - `dictionary/patterns/` の既存 232 件 — 構成（composition）形式を参照
+
+        **前提**：構成 atom が既に `dictionary/atoms/` に存在すること（先に atom 提案 issue を）。
+
+  - type: input
+    id: pattern-id
+    attributes:
+      label: "提案する pattern ID（kebab-case）"
+      placeholder: "your-pattern-id"
+    validations:
+      required: true
+
+  - type: input
+    id: pattern-name-ja
+    attributes:
+      label: "日本語名"
+      placeholder: "予防の自己消去"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: grammar-type
+    attributes:
+      label: "grammar_type"
+      options:
+        - process（過程型）
+        - erosion（侵食型）
+        - inversion（反転型）
+        - displacement（置換型）
+        - feedback-loop（フィードバック型）
+        - その他（本文で説明）
+    validations:
+      required: true
+
+  - type: textarea
+    id: definition
+    attributes:
+      label: "定義（1-2 段落）"
+      description: "パターンが何を捉えているか、どんな構造を可視化するかを言い切る。"
+    validations:
+      required: true
+
+  - type: textarea
+    id: composition
+    attributes:
+      label: "composition（構成 atom）"
+      description: "構成 atom を formula で書く。最小構成と補強因子を分けて。"
+      placeholder: |
+        composition_formula: "atom-A × atom-B (× atom-C as background)"
+
+        - atom-A: 基本層：〜
+        - atom-B: 時間層：〜
+        - atom-C: 背景層：〜（補強因子、必須ではない）
+    validations:
+      required: true
+
+  - type: textarea
+    id: applications
+    attributes:
+      label: "適用事例（最低 3 ドメイン横断）"
+      description: "同じパターンが異なるドメインで作動する事例。表形式推奨。"
+      placeholder: |
+        | ドメイン | 事例 | 出典 |
+        |---|---|---|
+        | 公衆衛生 | ... | ... |
+        | 建築 | ... | ... |
+        | サイバーセキュリティ | ... | ... |
+    validations:
+      required: true
+
+  - type: textarea
+    id: falsification
+    attributes:
+      label: "反証条件（最低 3 つ）"
+      description: "このパターンの定義が成立しない / 再検討が必要な条件。"
+      placeholder: |
+        1. 構成 atom が観察されているのに発動しない事例
+        2. 最小構成より少ない atom で発動する事例
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: related
+    attributes:
+      label: "関連パターンとの差分"
+      description: "似ている既存 pattern を 2-3 件挙げ、なぜ独立なのかを説明。"
+
+  - type: checkboxes
+    id: pre-submit
+    attributes:
+      label: "提出前チェック"
+      options:
+        - label: "構成 atom はすべて dictionary/atoms/ に既存する（または並行して atom 提案 issue がある）"
+          required: true
+        - label: "適用事例は最低 3 ドメイン横断"
+          required: true
+        - label: "反証条件を最低 3 つ書ける"
+          required: true

@@ -1,0 +1,65 @@
+name: "⚔️ 既存 atom / pattern への異議"
+description: "既存の atom / pattern が成立しない事例・定義不一致を指摘する"
+title: "[challenge] <atom-or-pattern-id>: <一行で論点>"
+labels: ["challenge"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        既存の atom / pattern が**成立しない事例**、**定義の不一致**、**独立性の問題**を指摘するテンプレートです。
+
+        反証事例は辞書を強化するデータです。welcome します。
+
+  - type: input
+    id: target-id
+    attributes:
+      label: "対象の atom / pattern ID"
+      placeholder: "prevention-self-erasure"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: challenge-type
+    attributes:
+      label: "異議の種類"
+      options:
+        - 反証事例（定義どおりに発動するはずなのに、発動していない事例）
+        - 過剰一般化（範囲が広すぎる、または狭すぎる）
+        - 既存 atom / pattern との重複（独立性が疑わしい）
+        - 命名の誤り（名前が動作・関係を捉えていない）
+        - 反証条件の不足
+        - その他（本文で説明）
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-definition
+    attributes:
+      label: "現在の定義の引用"
+      description: "対象ファイルから問題のある記述を引用。"
+    validations:
+      required: true
+
+  - type: textarea
+    id: counter-evidence
+    attributes:
+      label: "反証事例 / 不整合の根拠"
+      description: "具体例を出典付きで。最低 1 件、できれば 2-3 件。"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-fix
+    attributes:
+      label: "修正案（任意）"
+      description: "定義の書き換え、reset、別 pattern への分割など。"
+
+  - type: checkboxes
+    id: pre-submit
+    attributes:
+      label: "提出前チェック"
+      options:
+        - label: "対象 atom / pattern ファイル全体を読んだ（一部だけでなく）"
+          required: true
+        - label: "反証事例の出典を明示している"
+          required: true

@@ -1,0 +1,97 @@
+name: "🧬 Atom 提案"
+description: "新しい atom（構造原子）を提案する"
+title: "[atom] <atom-id>: <一行で動作・関係の名前>"
+labels: ["atom", "proposal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        新しい **atom**（分解不可能な最小単位の動作・関係）を提案するテンプレートです。
+
+        **先に確認**：
+        - [methodology.md §6](../blob/main/docs/methodology.md#6-拡張方法) — atom 追加の3条件
+        - [CONTRIBUTING.md §3-1](../blob/main/CONTRIBUTING.md#3-1-新しい-atom-を追加する)
+        - `dictionary/atoms/` の既存 79 件 — 命名規則・粒度感を体感する
+
+  - type: input
+    id: atom-id
+    attributes:
+      label: "提案する atom ID（kebab-case）"
+      placeholder: "your-atom-id"
+      description: "ファイル名と一致。動詞的・関係的なものを推奨。"
+    validations:
+      required: true
+
+  - type: input
+    id: atom-name-ja
+    attributes:
+      label: "日本語名"
+      placeholder: "コンテキスト剥離"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: domain
+    attributes:
+      label: "domain"
+      options:
+        - institutional
+        - cognitive
+        - relational
+        - economic
+        - linguistic
+        - temporal
+        - その他（本文で説明）
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "動作・関係の記述（1-2 段落）"
+      description: "「何をする動作か」「何と何の関係か」を言い切る。「現象」「結果」ではなく動詞的に。"
+      placeholder: "ある情報・知識・手続きが、制度を通過する過程で「点」だけに切り詰められ、由来・目的・帰結・代替などのコンテキストが構造的に削ぎ落とされる動作..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: observations
+    attributes:
+      label: "観察事例（最低 3 件、出典付き）"
+      description: "異なる文脈・ドメインで観察された事例を 3 件以上。出典を明示。"
+      placeholder: |
+        1. （事例 1）出典：...
+        2. （事例 2）出典：...
+        3. （事例 3）出典：...
+    validations:
+      required: true
+
+  - type: textarea
+    id: independence-check
+    attributes:
+      label: "独立性チェック"
+      description: "既存 atom に包含されないことを示す。「似ているが違う」既存 atom を 2-3 件挙げて、なぜ独立なのかを説明。"
+      placeholder: |
+        - `existing-atom-X` とは違う、なぜなら...
+        - `existing-atom-Y` とは違う、なぜなら...
+    validations:
+      required: true
+
+  - type: textarea
+    id: related-patterns
+    attributes:
+      label: "関与パターン候補"
+      description: "この atom が組み込まれそうな既存 pattern、または新規 pattern の仮置き。"
+      placeholder: "[[inquiry-foreclosure]] の基本層として作動する可能性..."
+
+  - type: checkboxes
+    id: pre-submit
+    attributes:
+      label: "提出前チェック"
+      options:
+        - label: "既存 79 atoms を grep / 命名一覧で重複確認した"
+          required: true
+        - label: "観察事例 3 件以上を、異なるドメインから選んだ"
+          required: true
+        - label: "動詞的・関係的な命名になっている（「現象」「結果」ではない）"
+          required: true

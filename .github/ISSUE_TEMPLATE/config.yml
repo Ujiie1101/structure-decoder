@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 まず方法論を読む
+    url: https://github.com/Ujiie1101/structure-decoder/blob/main/docs/methodology.md
+    about: 4 層分解の原理、辞書三層、再現性の定義を先に読むと、議論が早くなります。
+  - name: 🤝 貢献方法を確認する
+    url: https://github.com/Ujiie1101/structure-decoder/blob/main/CONTRIBUTING.md
+    about: PR の出し方、レビュー基準、Welcome / 拒否される PR の種類を確認できます。

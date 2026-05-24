@@ -1,0 +1,53 @@
+name: "🐛 バグ報告（engines / docs）"
+description: "skill / engine の挙動不良、ドキュメントの誤り、リンク切れなど"
+title: "[bug] <一行で症状>"
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        skill engine の挙動不良、ドキュメントの誤り、リンク切れなどを報告するテンプレートです。
+
+  - type: dropdown
+    id: bug-area
+    attributes:
+      label: "影響範囲"
+      options:
+        - "/book-decompose skill"
+        - "/atom-decompose skill"
+        - "/diagnose skill"
+        - "dictionary（atoms / patterns / mechanisms）の誤記・リンク切れ"
+        - "README / methodology / CONTRIBUTING"
+        - "examples（書物分解）の不整合"
+        - "その他"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "再現手順"
+      description: "何をしたか、何が起きたか、何が起きるはずだったか。"
+      placeholder: |
+        1. `/book-decompose ...` を実行
+        2. ...
+        3. 期待された結果：...
+        4. 実際の結果：...
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: "環境"
+      description: "Claude Code バージョン、OS など（該当する場合）"
+      placeholder: |
+        - Claude Code: x.y.z
+        - OS: macOS / Linux / Windows
+        - シェル: zsh / bash
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "補足"
+      description: "スクリーンショット、ログ、関連 issue など。"

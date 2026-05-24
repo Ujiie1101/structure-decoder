@@ -1,0 +1,39 @@
+name: "❓ 質問"
+description: "atom / pattern / methodology / 使い方についての質問"
+title: "[question] <一行で論点>"
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        質問のための issue です。**まず以下を読んでから**にしてください：
+
+        - [README.md](../blob/main/README.md) — 何ができるか
+        - [docs/methodology.md](../blob/main/docs/methodology.md) — 4 層分解の原理、再現性の定義
+        - [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md) — 貢献方法
+
+        既存 atom / pattern を 3-5 件読むと、ほとんどの質問は自己解決します。
+
+  - type: textarea
+    id: question
+    attributes:
+      label: "質問"
+      description: "何を知りたいか、どこで詰まったかを具体的に。"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-tried
+    attributes:
+      label: "すでに調べたこと"
+      description: "どのドキュメントを読んだか、どの atom / pattern を見たか。"
+
+  - type: checkboxes
+    id: pre-submit
+    attributes:
+      label: "提出前チェック"
+      options:
+        - label: "README.md と methodology.md を読んだ"
+          required: true
+        - label: "関連する既存 atom / pattern を 3 件以上見た"
+          required: true
