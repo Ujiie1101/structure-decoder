@@ -56,7 +56,8 @@ structure-decoder/
 │   ├── patterns/             # 構造パターン（232件）
 │   ├── mechanisms/           # OS層メカニズム（34件）
 │   └── meta/                 # メタ層（書物レベル技法など）
-├── engines/                   # = 分解エンジン（Claude Code skills、移植中）
+├── .claude/skills/            # = 分解エンジン（Claude Code が自動読込）
+│   └── book-decompose/       # 書物の一文を4層分解 + 5 modes
 ├── examples/                  # = 装置が動いた証拠
 │   └── henshin/              # 変身（カフカ）全3章 reading-note + published
 └── docs/                      # = 方法論（執筆中）
@@ -74,34 +75,66 @@ structure-decoder/
 
 ---
 
-## 使い方（v0、現状）
+## 使い方
 
-このリポジトリを clone し、`dictionary/atoms/` `dictionary/patterns/` を辞書として参照します。
+### 1. クローン
 
 ```bash
 git clone https://github.com/Ujiie1101/structure-decoder.git
 cd structure-decoder
-# atoms/patterns を読んで構造のレキシコンを得る
-ls dictionary/atoms/
-ls dictionary/patterns/
 ```
 
-実行可能なエンジン（Claude Code skills）の移植は近日中に `engines/` に追加します。最終的には：
+### 2. 辞書を引く（読み物として）
 
-- Claude Code から `/book-decompose` 等のコマンドで分解実行
-- もしくは Web app から paste して分解実行
+```bash
+# 全 atoms の一覧
+ls dictionary/atoms/
+
+# ある atom の中身を読む
+cat dictionary/atoms/context-stripping.md
+cat dictionary/patterns/inquiry-foreclosure.md
+```
+
+辞書ファイルはすべて Markdown + frontmatter。GitHub上でも読めます。
+
+### 3. 装置を動かす（Claude Code で 4層分解）
+
+このリポジトリで `claude` を起動すると、`.claude/skills/` が自動的に読み込まれ、`/book-decompose` コマンドが使えるようになります。
+
+```bash
+# このディレクトリで Claude Code を起動
+claude
+
+# 起動後、次のコマンドを実行：
+/book-decompose 「親譲りの無鉄砲で小供の時から損ばかりしている」 坊っちゃん
+```
+
+出力例：4層分解（事実 / 修辞 / 構造命題 / 書物接続）+ 起動した atoms / patterns のリスト + 新造語候補。
+
+その他のモード：
+
+```
+/book-decompose --extract <段落>           # load-bearing 文の抽出
+/book-decompose --article <文>             # 古典×現代の記事執筆
+/book-decompose --en <文>                  # 英訳版（海外ブログ用）
+/book-decompose --reading-note <章>        # 観察者の独白（内部用）
+/book-decompose --published <章>           # note 公開用 ※注釈形式
+```
+
+> **Note**: Claude Code（Anthropic公式CLI）が必要です。`brew install claude` または公式インストール手順を参照してください。$100 以上のプラン推奨。
 
 ---
 
 ## ステータス
 
-**WIP — v0.1（dictionary + 1サンプルセット 公開）**
+**WIP — v0.2（dictionary + book-decompose engine + 1サンプルセット 公開）**
 
 | フェーズ | 進捗 |
 |---|---|
 | dictionary 層公開 | ✅ atoms 79 / patterns 232 / mechanisms 34 / meta 3 |
-| examples 層公開 | ✅ 変身（カフカ）全3章 |
-| engines 層公開 | ⏳ Claude Code skills 移植中 |
+| examples 層公開 | ✅ 変身（カフカ）全3章（reading-note + published） |
+| engines 層公開 | ✅ `book-decompose`（4層分解 + 6 modes、約1300行の skill） |
+|  | ⏳ `atom-decompose` / `diagnose` / `predict` 等 移植予定 |
 | docs/methodology | ⏳ 執筆中 |
 | Web UI | ⏳ 将来 |
 
